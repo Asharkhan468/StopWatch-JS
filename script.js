@@ -1,47 +1,80 @@
 let sec = 0;
 let min = 0;
 let hour = 0;
-let intervel = null;
+let secInterval;
+let minInterval;
+let hourInterval;
+
+let hours = document.querySelector("#hour");
+let minute = document.querySelector("#minute");
+let seconds = document.querySelector("#second");
 
 function startBtn() {
-  let hours = document.querySelector("#hour");
-  let minute = document.querySelector("#minute");
-  let seconds = document.querySelector("#second");
+  
 
-//   let sec = 0;
-  setInterval(function () {
+   secInterval = setInterval(function () {
     sec += 1;
-    seconds.innerHTML = sec;
-    if (sec === 60) {
+    if (sec > 9) {
+      seconds.innerHTML = sec;
+    } else {
+      seconds.innerHTML = "0"+ sec;
+    }
+    // seconds.innerHTML = sec;
+    if (sec == 59) {
       sec = 0;
     }
   }, 1000);
 
-//   let min = 0;
-  setInterval(function () {
+
+   minInterval = setInterval(function () {
     min += 1;
-    minute.innerHTML = min;
-    if (min == 60) {
+    if(min>9){
+     minute.innerHTML = min; 
+    }else{
+      minute.innerHTML = "0" + min;
+    }
+    // minute.innerHTML = min;
+    if (min == 59) {
       min = 0;
     }
   }, 60000);
 
-//   let hour = 0;
-  setInterval(function () {
+
+hourInterval =  setInterval(function () {
     hour += 1;
-    hours.innerHTML = hour;
-    if (hour == 60) {
+    if (hour > 9) {
+      hours.innerHTML = hour;
+    } else {
+      hours.innerHTML = "0" + hour;
+    }
+    // hours.innerHTML = hour;
+    if (hour == 59) {
       hour = 0;
     }
   }, 3600000);
+  
 }
 
+
+
 function stopInterval() {
-   clearInterval(intervel);
-   console.log("Stop button clicked");
-   intervel = null;
+   clearInterval(secInterval);
+   clearInterval(minInterval);
+   clearInterval(hourInterval);
+  
 }
 
 function reset() {
-  location.reload();
+ hour=0;
+ sec=0;
+ min=0;
+
+ hours.innerHTML= "00 ";
+ minute.innerHTML= "00 ";
+ seconds.innerHTML= "00";
+
+ clearInterval(secInterval);
+ clearInterval(minInterval);
+ clearInterval(hourInterval);
+
 }
