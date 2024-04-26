@@ -19,7 +19,6 @@ function startBtn() {
     } else {
       seconds.innerHTML = "0"+ sec;
     }
-    // seconds.innerHTML = sec;
     if (sec == 59) {
       sec = 0;
     }
@@ -33,7 +32,6 @@ function startBtn() {
     }else{
       minute.innerHTML = "0" + min;
     }
-    // minute.innerHTML = min;
     if (min == 59) {
       min = 0;
     }
@@ -47,7 +45,6 @@ hourInterval =  setInterval(function () {
     } else {
       hours.innerHTML = "0" + hour;
     }
-    // hours.innerHTML = hour;
     if (hour == 59) {
       hour = 0;
     }
